@@ -29,9 +29,13 @@ namespace Driver {
 	void enviar(CLista_R<CBus*>*& objLista, CCola<CPersona*>* objCola) {
 		if (objCola->getTam() == 0) { cout << "No existen personas registradas\n"; }
 		else {
-			//cout << "/------------------ Piura ------------------/\n";
-
 			
+			cout << "Enviando"; _sleep(900); cout << "."; _sleep(500); cout << "."; _sleep(300);
+
+			objCola->vaciar_Cola();
+
+			objLista->reiniciar_Capacidad();
+			objLista->reiniciar_Vectores();
 			
 		}
 	}
@@ -106,7 +110,7 @@ namespace Driver {
 				_sleep(5000);
 				break;
 			case 4:
-				objCola->vaciar_Cola();
+				
 				_sleep(3000);
 				objCola->mostrar();
 			default:
