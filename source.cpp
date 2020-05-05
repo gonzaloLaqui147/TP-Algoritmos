@@ -5,9 +5,7 @@ using namespace Driver;
 
 void get_Buses(ifstream& arcL, CLista_R<CBus*>* objLista) {
 	CBus* objB;
-	char c = ',';
-	string destino; unsigned int cap;
-	const char *val;
+	string destino;
 	arcL.open("Buses.txt");
 	while (getline(arcL, destino)) {
 
