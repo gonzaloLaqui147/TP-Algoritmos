@@ -38,12 +38,7 @@ public:
 
 	}
 
-	bool verif(Nodo<T>* nodo, Nodo<T>* nuevo) {
-
-		auto lambda = [](int a, int b) { if (a != b) { return false; } else { return true; }};
-
-		return lambda(nodo->e->getDNI(), nuevo->e->getDNI());
-	}
+	
 
 	void enqueue() {
 		Nodo<T>* aux = inicio;
@@ -149,6 +144,13 @@ public:
 
 	T getFin() {
 		return fin->e;
+	}
+
+	bool verif(Nodo<T>* nodo, Nodo<T>* nuevo) {
+
+		auto lambda = [](int a, int b) { if (a != b) { return false; } else { return true; }};
+
+		return lambda(nodo->e->getDNI(), nuevo->e->getDNI());
 	}
 
 };
