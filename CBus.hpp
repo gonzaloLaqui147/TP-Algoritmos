@@ -35,4 +35,9 @@ public:
 			}
 		}
 	}
+	void vaciar_Vector() {
+		for (int i = 0; i < vecP.size(); i++) {
+			vecP.pop_back();
+		}
+	}
 };
