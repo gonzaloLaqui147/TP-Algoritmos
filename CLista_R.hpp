@@ -61,10 +61,26 @@ public:
 		}
 	}
 
+	int getTamanio() { return this->tam; }
+	
+	void reiniciar_Capacidad() {
+		Nodo<T>* aux = inicio;
+		for (int i = 0; i < tam; i++) {
+			aux->e->setCapacidad(40);
+			aux = aux->s;
+		}
+	}
+
+	void reiniciar_Vectores() {
+		Nodo<T>* aux = inicio;
+		for (int i = 0; i < tam; i++) {
+			aux->e->vaciar_Vector();
+			aux = aux->s;
+		}
+	}
+
 	bool is_Empty() {
 		auto lambda = [](int tam) { return (tam == 0) ? true : false; };
 		return lambda(tam);
 	}
-
-	int getTamanio() { return this->tam; }
 };
