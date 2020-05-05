@@ -62,10 +62,8 @@ public:
 	}
 
 	bool is_Empty() {
-		if (tam == 0) { return true; }
-		else {
-			return false;
-		}
+		auto lambda = [](int tam) { return (tam == 0) ? true : false; };
+		return lambda(tam);
 	}
 
 	int getTamanio() { return this->tam; }
