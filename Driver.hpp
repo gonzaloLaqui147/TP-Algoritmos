@@ -15,13 +15,14 @@ namespace Driver {
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 	}
 
-	void menu() {
+	void menu()	 {
 
 		gotoxy(45, 13); cout << "1. Registrar Persona    ";
 		gotoxy(45, 14); cout << "2. Mostrar Personas Registradas";
-		gotoxy(45, 15); cout << "3. Mostrar Buses ";
-		gotoxy(45, 16); cout << "0. Salir         ";
-		gotoxy(45, 17);
+		gotoxy(45, 15); cout << "3. Mostrar Buses    ";
+		gotoxy(45, 16); cout << "4. Enviar Pasajeros ";
+		gotoxy(45, 17); cout << "0. Salir            ";
+		gotoxy(45, 18);
 
 	}
 
@@ -71,7 +72,7 @@ namespace Driver {
 		else {
 			objP = new CPersona(nombre, destino, edad, DNI, prioridad);
 
-			//La funcion booleana evita que se guarde a la misma persona más de una vez
+			//La funcion booleana evita que se guarde a la misma persona mÃ¡s de una vez
 			if (objCola->queue(objP)) {
 				Driver::guardar_Persona(arcE, objP);
 				objLista->getNodo(destino)->agregar_Persona(objP);
@@ -88,29 +89,26 @@ namespace Driver {
 			do {
 				menu();
 				cin >> op;
-			} while (op != 0 && op != 1 && op != 2 && op != 3);
+			} while (op != 0 && op != 1 && op != 2 && op != 3 && op != 4);
 			system("cls");
 			switch (op) {
 			case 1:
 				registrar(objLista, objCola, arcE);
 				break;
 			case 2:
-				objCola->mostrar();
-				cout << endl;
-				cout << objCola->getFin()->getDNI();
-				cout << endl;
 				objCola->priorizar();
 				cout << endl << endl;
-				objCola->mostrar();
 
-				cout << "--------------" << endl;
-				cout << objCola->getFin()->getDNI();
 				_sleep(10000);
 				break;
 			case 3:
 				objLista->mostrar();
 				_sleep(5000);
 				break;
+			case 4:
+				objCola->vaciar_Cola();
+				_sleep(3000);
+				objCola->mostrar();
 			default:
 				break;
 			}
